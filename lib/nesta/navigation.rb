@@ -57,7 +57,7 @@ module Nesta
       end
 
       def link_text(page)
-        page.link_text
+        page.metadata('title') || page.link_text
       rescue LinkTextNotSet
         return 'Home' if page.abspath == '/'
         raise
