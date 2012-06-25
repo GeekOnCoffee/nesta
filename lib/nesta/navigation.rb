@@ -41,6 +41,7 @@ module Nesta
       end
 
       def display_breadcrumbs(options = {})
+        return unless breadcrumb_ancestors.size > 1
         haml_tag :ul, :class => options[:class] do
           breadcrumb_ancestors[0...-1].each do |page|
             haml_tag :li do
