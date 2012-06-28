@@ -91,6 +91,7 @@ module Nesta
       raise Sinatra::NotFound if @page.nil?
       @title = @page.title
       set_from_page(:description, :keywords)
+      @description ||= @page.metadata('summary')
       cache haml(@page.template, :layout => @page.layout)
     end
   end
