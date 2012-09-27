@@ -186,7 +186,7 @@ module Nesta
     end
 
     def self.find_all
-      super.select { |p| ! p.hidden? }
+      super.select { |p| ! p.hidden? }.select{ |p| p.date.nil? || p.date < DateTime.now }
     end
 
     def self.find_articles
